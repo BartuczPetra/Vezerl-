@@ -5,6 +5,7 @@
  */
 package nezet;
 
+import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -274,6 +275,16 @@ public class Vezerlok extends javax.swing.JFrame {
         jLabel3.setText("Új szak:");
 
         txtujSzak.setText("jTextField1");
+        txtujSzak.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtujSzakMouseExited(evt);
+            }
+        });
+        txtujSzak.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtujSzakKeyPressed(evt);
+            }
+        });
 
         btnComboba.setText("Felvesz");
         btnComboba.addActionListener(new java.awt.event.ActionListener() {
@@ -466,6 +477,20 @@ public class Vezerlok extends javax.swing.JFrame {
             rdbVege.setEnabled(true);
         }
     }//GEN-LAST:event_chbHozzaFuzActionPerformed
+
+    private void txtujSzakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtujSzakKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER && !txtujSzak.getText().equals("")){
+               jComboBox1.addItem(txtujSzak.getText());
+            }
+    }//GEN-LAST:event_txtujSzakKeyPressed
+
+    private void txtujSzakMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtujSzakMouseExited
+        if (txtujSzak.getText()==null || txtujSzak.getText().equals("")) {
+            btnComboba.setEnabled(false);
+        }else{
+            btnComboba.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtujSzakMouseExited
 
     /**
      * @param args the command line arguments
