@@ -7,6 +7,8 @@ package nezet;
 
 import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
@@ -79,7 +81,7 @@ public class Vezerlok extends javax.swing.JFrame {
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Vezérlők használata");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -398,7 +400,7 @@ public class Vezerlok extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -503,17 +505,20 @@ public class Vezerlok extends javax.swing.JFrame {
     }//GEN-LAST:event_txtujSzakMouseExited
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        if (JOptionPane.showConfirmDialog(this, "Biztos kilép?", "Kilépés", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            System.exit(0);
-        }
+        bezaras();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (JOptionPane.showConfirmDialog(this, "Biztos kilép?", "Kilépés", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            System.exit(0);
-        }
+        bezaras();
     }//GEN-LAST:event_formWindowClosing
 
+    public void bezaras(){
+        Icon icon = new ImageIcon(getClass().getResource("kepek/icon.png"));
+        if (JOptionPane.showConfirmDialog(rootPane, "Biztos kilép?", "Kilépés", JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE, icon) == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
